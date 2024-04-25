@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Webcam vid</title>
+    <link rel="stylesheet" href="">
+    <style>
+        #eins{
+            filter: grayscale(100%)
+        }
+        #zwei{
+            filter: saturate(180%) contrast(1000%)
+        }
+        #drei{
+            filter: hue-rotate(310deg);
+        }
+        #vier{
+            filter: invert(100%)
+        }
+        #fünf{
+            filter: sepia(800);
+        }
+        #sechs{
+            filter: saturate(180%) contrast(1000%)
+        }
+    </style>
+</head>
+
+<body>
+    <video id="eins" autoplay="true"></video>
+    <video id="zwei" autoplay="true"></video>
+    <video id="drei" autoplay="true"></video>
+    <video id="vier" autoplay="true"></video>
+    <video id="fünf" autoplay="true"></video>
+    <video id="sechs" autoplay="true"></video>
+
+    <script>
+        navigator.mediaDevices.getUserMedia({ video: true }).then(stream => setStream(stream));
+        function setStream(stream) {
+            document.querySelector('#eins').srcObject= stream;
+            document.querySelector('#zwei').srcObject= stream;
+            document.querySelector('#drei').srcObject= stream;
+            document.querySelector('#vier').srcObject= stream;
+            document.querySelector('#fünf').srcObject= stream;
+            document.querySelector('#sechs').srcObject= stream;
+        }
+
+
+    </script>
+</body>
+
+</html>
